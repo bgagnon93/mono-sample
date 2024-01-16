@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "ms-azuretools.vscode-docker",
+    "hashicorp.terraform",
+    "sonarsource.sonarlint-vscode",
+    "ms-vscode-remote.remote-containers"
+  ]
+}
