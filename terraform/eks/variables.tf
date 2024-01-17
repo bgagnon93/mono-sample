@@ -3,8 +3,19 @@ variable "account_id" {
   type        = string
 }
 
+variable "region" {
+  description = "AWS Region"
+  type        = string
+  default     = "us-east-1"
+}
+
 variable "cluster_name" {
   description = "EKS Cluster Name"
+  type        = string
+}
+
+variable "cluster_subdomain" {
+  description = "Route53 subdomain for DNS entries"
   type        = string
 }
 
@@ -34,6 +45,10 @@ variable "private_subnets" {
 
 variable "eks_cluster_zone_id" {
   description = "Route53 Zone ID for EKS Cluster"
+}
+
+variable "aws_acm_certificate_arn" {
+  description = "AWS ACM Certificate ARN"
 }
 
 variable "tags" {

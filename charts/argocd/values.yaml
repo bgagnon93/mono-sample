@@ -1,0 +1,43 @@
+argo-cd:
+  configs:
+    # credentialTemplates:
+    #   https-creds:
+    #       url: https://github.com/bgagnon
+    #       #password: [ SET IN TERRAFORM ]
+    #       username: git
+    cm:
+      exec.enabled: "true"
+      statusbadge.enabled: "true"
+  server:
+    extraArgs:
+      - --insecure
+    ingress:
+      enabled: true
+      # annotations:
+      # external-dns.alpha.kubernetes.io/hostname: [ SET IN TERRAFORM ]
+      # alb.ingress.kubernetes.io/inbound-cidrs: [ SET IN TERRAFORM ]
+      # alb.ingress.kubernetes.io/certificate-arn:  [ SET IN TERRAFORM ]
+      # We terminate SSL at the load balancer
+      https: false
+      paths:
+        - /
+        - /*
+      pathType: ImplementationSpecific
+      #   host: [ SET IN TERRAFORM ]
+      # extraPaths:
+      #   - path: /*
+      #     pathType: ImplementationSpecific
+      #     backend:
+      #       service:
+      #         name: argocd-server
+      #         port:
+      #           number: 80
+      #   - path: /
+      #     pathType: ImplementationSpecific
+      #     backend:
+      #       service:
+      #         name: argocd-server
+      #         port:
+      #           number: 80
+  crds:
+    install: true

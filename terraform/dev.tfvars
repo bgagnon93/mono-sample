@@ -9,22 +9,22 @@ contact     = "bgagnon93@gmail.com"
 client      = "internal"
 
 ### CLUSTER INFO ###
-cluster_name        = "bgagnon-eks-dev-us-east-1"
-cluster_subdomain   = "dev.gagnonagon.com"
-parent_domain       = "gagnonagon.com"
-eks_version         = "1.28"
-vpc_cidr            = "10.1.0.0/16"
-acm_certificate_arn = "" # Maybe we automate deployment of Certificates too!
-private_subnet_cidrs = [
-  "10.1.0.0/19",
-  "10.1.32.0/19",
-  "10.1.64.0/19"
-]
-public_subnet_cidrs = [
-  "10.1.96.0/19",
-  "10.1.128.0/19",
-  "10.1.160.0/19"
-]
+cluster_name      = "bgagnon-eks-dev-us-east-1"
+cluster_subdomain = "dev.gagnonagon.com"
+parent_domain     = "gagnonagon.com"
+# eks_version       = "1.28"
+# vpc_cidr            = "10.1.0.0/16"
+# acm_certificate_arn = "" # Maybe we automate deployment of Certificates too!
+# private_subnet_cidrs = [
+#   "10.1.0.0/19",
+#   "10.1.32.0/19",
+#   "10.1.64.0/19"
+# ]
+# public_subnet_cidrs = [
+#   "10.1.96.0/19",
+#   "10.1.128.0/19",
+#   "10.1.160.0/19"
+# ]
 managed_node_groups = {
   "base-nodegroup" = {
     name           = "eks-base-nodegroup"

@@ -1,0 +1,30 @@
+applications:
+  - name: cluster-apps
+    namespace: argocd
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    project: default
+    source:
+      repoURL: https://github.com/bgagnon/mono-sample
+      targetRevision: HEAD
+    destination:
+      server: "https://kubernetes.default.svc"
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: true
+  - name: core-apps
+    namespace: argocd
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    project: default
+    source:
+      repoURL: https://github.com/bgagnon/mono-sample
+      targetRevision: HEAD
+      path: argocd/core
+    destination:
+      server: "https://kubernetes.default.svc"
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: true

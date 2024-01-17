@@ -1,0 +1,19 @@
+nginx:
+  ingressController: 'ingress-nginx-controller'
+
+# == EXAMPLE ==
+# loadBalancer:
+#   name: alb-nucleize-dev-us-east-1
+#   domain: dev.nucleize.com
+#   certificateArn: arn:aws:acm:us-east-1:${ACCOUNT_ID}:certificate/${CERTIFICATE_ID}
+#  #(Format: arn:aws:acm:${REGION}:${ACCOUNT_ID}:certificate/${CERTIFICATE_ID})
+
+# == FUTURE WORK ==
+# - Create Route53 Hosted Zone with Terraform (if doesn't exist)
+# - Create ACM-managed Hosted Certificate with Terraform (if doesn't exist)
+#   - create required Route53 entries for automatic validation
+
+
+
+
+

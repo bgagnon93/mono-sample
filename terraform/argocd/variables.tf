@@ -30,3 +30,9 @@ variable "argocd_github_token" {
   default     = "undefined"
   sensitive   = true
 }
+
+variable "values_file" {
+  description = "Path to values file for ArgoCD"
+  type        = string
+  default     = "helm/argocd/values.yaml"
+}
