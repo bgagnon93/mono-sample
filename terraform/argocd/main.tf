@@ -46,23 +46,25 @@ resource "helm_release" "argocd_rollouts" {
   version          = "2.28.0"
 }
 
-# resource "helm_release" "argocd_apps" {
-#   name             = "argocd-apps"
-#   namespace        = "argocd"
-#   create_namespace = true
-#   repository       = "https://argoproj.github.io/argo-helm"
-#   chart            = "argocd-apps"
+resource "helm_release" "argocd_apps" {
+  name             = "argocd-apps"
+  namespace        = "argocd"
+  create_namespace = true
+  repository       = "https://argoproj.github.io/argo-helm"
+  chart            = "argocd-apps"
 
-#   values = [""]
-#   # set {
-#   #   name  = "valuesChecksum"
-#   #   value = filemd5("helm/argocd-apps/values.yaml")
-#   # }
-#   set {
-#     name  = "applications[0].source.path"
-#     value = "helm/${var.cluster_name}"
-#   }
-#   depends_on = [
-#     helm_release.argocd
-#   ]
-# }
+  values = [
+    "${file("../charts/argocd-apps/values.yaml")}"
+  ]
+  set {
+    name  = "valuesChecksum"
+    value = filemd5("../charts/argocd-apps/values.yaml")
+  }
+  set {
+    name  = "applications[0].source.path"
+    value = "helm/${var.cluster_name}"
+  }
+  depends_on = [
+    helm_release.argocd
+  ]
+}
