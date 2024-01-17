@@ -1,15 +1,15 @@
 applications:
   - name: hello-world-app
-    namespace: hello-world
+    namespace: argocd
     finalizers:
       - resources-finalizer.argocd.argoproj.io
     project: default
     source:
-      repoURL: https://github.com/bgagnon/mono-sample
+      repoURL: https://github.com/bgagnon93/mono-sample
       path: charts/hello-world
-      targetRevision: HEAD
+      targetRevision: main
     destination:
-      server: "https://hello-world.dev.gagnonagon.com"
+      server: "https://kubernetes.default.svc"
     syncPolicy:
       automated:
         selfHeal: true
@@ -20,7 +20,7 @@ applications:
   #     - resources-finalizer.argocd.argoproj.io
   #   project: default
   #   source:
-  #     repoURL: https://github.com/bgagnon/mono-sample
+  #     repoURL: https://github.com/bgagnon93/mono-sample
   #     targetRevision: HEAD
   #     path: argocd/core
   #   destination:

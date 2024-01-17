@@ -2,7 +2,7 @@ argo-cd:
   configs:
     # credentialTemplates:
     #   https-creds:
-    #       url: https://github.com/bgagnon
+    #       url: https://github.com/bgagnon93
     #       #password: [ SET IN TERRAFORM ]
     #       username: git
     cm:

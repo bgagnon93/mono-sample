@@ -60,10 +60,10 @@ resource "helm_release" "argocd_apps" {
     name  = "valuesChecksum"
     value = filemd5("../charts/argocd-apps/values.yaml")
   }
-  set {
-    name  = "applications[0].source.path"
-    value = "helm/${var.cluster_name}"
-  }
+  # set {
+  #   name  = "applications[0].source.path"
+  #   value = "helm/${var.cluster_name}"
+  # }
   depends_on = [
     helm_release.argocd
   ]
