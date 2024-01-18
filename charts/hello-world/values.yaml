@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: hello-world
+  repository: 983510677257.dkr.ecr.us-east-1.amazonaws.com/eks-hello-world
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "dev"
 
 imagePullSecrets: []
 nameOverride: ""

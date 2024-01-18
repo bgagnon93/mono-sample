@@ -1,4 +1,5 @@
 applications:
+  # TODO: UNCOMMENT AND TERRAFORM APPLY TO KEEP TRYING...
   - name: hello-world-app
     namespace: argocd
     finalizers:
@@ -10,22 +11,23 @@ applications:
       targetRevision: main
     destination:
       server: "https://kubernetes.default.svc"
+      namespace: default
     syncPolicy:
       automated:
         selfHeal: true
         prune: true
-  # - name: core-apps
-  #   namespace: argocd
-  #   finalizers:
-  #     - resources-finalizer.argocd.argoproj.io
-  #   project: default
-  #   source:
-  #     repoURL: https://github.com/bgagnon93/mono-sample
-  #     targetRevision: HEAD
-  #     path: argocd/core
-  #   destination:
-  #     server: "https://kubernetes.default.svc"
-  #   syncPolicy:
-  #     automated:
-  #       selfHeal: true
-  #       prune: true
+# - name: core-apps
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+#   project: default
+#   source:
+#     repoURL: https://github.com/bgagnon93/mono-sample
+#     targetRevision: HEAD
+#     path: argocd/core
+#   destination:
+#     server: "https://kubernetes.default.svc"
+#   syncPolicy:
+#     automated:
+#       selfHeal: true
+#       prune: true
