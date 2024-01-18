@@ -52,7 +52,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: hello.dev.gagnonagon.com
+    - host: dev.gagnonagon.com
       paths:
         - path: /
           pathType: ImplementationSpecific
